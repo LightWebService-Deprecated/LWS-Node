@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Threading.Tasks;
 using LWS_Node.Configuration;
@@ -16,6 +17,7 @@ using Microsoft.Extensions.Logging;
 
 namespace LWS_Node
 {
+    [ExcludeFromCodeCoverage]
     public class Startup
     {
         public Startup(IConfiguration configuration)

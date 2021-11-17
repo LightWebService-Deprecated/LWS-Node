@@ -1,5 +1,8 @@
+using System.Diagnostics.CodeAnalysis;
+
 namespace LWS_Node.Model
 {
+    [ExcludeFromCodeCoverage]
     public class NodeInformation
     {
         // Default Node Information
