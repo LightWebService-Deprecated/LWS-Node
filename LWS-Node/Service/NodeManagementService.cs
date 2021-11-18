@@ -26,9 +26,6 @@ namespace LWS_Node.Service
                     Message = "The Node secret log is not correct! Please check again."
                 });
             }
-            
-            // Nullify code.
-            _nodeConfiguration.NodeKey = null;
 
             return Task.FromResult(new Result
             {
