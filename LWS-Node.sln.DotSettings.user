@@ -1,5 +1,25 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
 	<s:String x:Key="/Default/Environment/Highlighting/HighlightingSourceSnapshotLocation/@EntryValue">/Users/kangdroid/Library/Caches/JetBrains/Rider2021.3/resharper-host/temp/Rider/vAny/CoverageData/_LWS-Node.1811221331/Snapshot/snapshot.utdcvr</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=196b0be3_002D5f15_002D4a2f_002Da778_002De9cfce620bab/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="InitAsp should return successful AspInitResult when everything works well." xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;xUnit::3676E50E-9BB0-44E0-9AD5-502A21D43BE1::net6.0::LWS_NodeTest.Docker.DotnetAspInitializerTest&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=23a4f335_002D9313_002D4c2f_002Da045_002D0a3089b3f9cc/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="CreateContainerAsync should build image and container well. #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;xUnit::3676E50E-9BB0-44E0-9AD5-502A21D43BE1::net6.0::LWS_NodeTest.Docker.Image.AspDockerImageTest&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=7864aaf3_002Df6b7_002D4ca6_002Dbf12_002D9867f6e826a4/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="InitAsp should return successful AspInitResult when everything works well." xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;xUnit::3676E50E-9BB0-44E0-9AD5-502A21D43BE1::net6.0::LWS_NodeTest.Docker.DotnetAspInitializerTest&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=a594b159_002D5104_002D456e_002Daba7_002D3aa57e332af5/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="CreateContainerAsync should build image and container well." xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;xUnit::3676E50E-9BB0-44E0-9AD5-502A21D43BE1::net6.0::LWS_NodeTest.Docker.Image.AspDockerImageTest.Is_CreateContainerAsync_Should_Build_Image_Well&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=ec91a209_002Dccc7_002D4dbd_002Daa43_002D5512defd0bb4/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="NodeConfigurationTest" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
   &lt;TestAncestor&gt;
     &lt;TestId&gt;xUnit::3676E50E-9BB0-44E0-9AD5-502A21D43BE1::net6.0::LWS_NodeTest.Configuration.NodeConfigurationTest&lt;/TestId&gt;
