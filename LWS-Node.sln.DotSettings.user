@@ -20,6 +20,12 @@
     &lt;TestId&gt;xUnit::3676E50E-9BB0-44E0-9AD5-502A21D43BE1::net6.0::LWS_NodeTest.Docker.Image.AspDockerImageTest.Is_CreateContainerAsync_Should_Build_Image_Well&lt;/TestId&gt;
   &lt;/TestAncestor&gt;
 &lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=d3318f6b_002D3476_002D4bc2_002Da1d1_002D75fc68e92d12/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="DotnetAspInitializerTest" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;xUnit::3676E50E-9BB0-44E0-9AD5-502A21D43BE1::net6.0::LWS_NodeTest.Docker.DotnetAspInitializerTest&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::3676E50E-9BB0-44E0-9AD5-502A21D43BE1::net6.0::LWS_NodeTest.Docker.Image.AspDockerImageTest&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=ec91a209_002Dccc7_002D4dbd_002Daa43_002D5512defd0bb4/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="NodeConfigurationTest" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
   &lt;TestAncestor&gt;
     &lt;TestId&gt;xUnit::3676E50E-9BB0-44E0-9AD5-502A21D43BE1::net6.0::LWS_NodeTest.Configuration.NodeConfigurationTest&lt;/TestId&gt;

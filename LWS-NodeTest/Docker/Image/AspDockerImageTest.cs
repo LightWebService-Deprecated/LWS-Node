@@ -23,7 +23,7 @@ public class AspDockerImageTest: IDisposable, IClassFixture<AspDockerFixture>
         using var streamReader = new StreamReader(fileStream);
         var jsonString = streamReader.ReadToEnd();
         
-        var initializer = new DotnetAspInitializer("https://github.com/LightWebService/LWS-Node", jsonString, "LWS-Node/LWS-Node.csproj");
+        var initializer = new DotnetAspInitializer("https://github.com/LightWebService/LWS-Node", jsonString);
         var result = initializer.InitAsp();
         
         _aspDockerImage = new AspDockerImage(_fixture.DockerClient, result.TargetObject);

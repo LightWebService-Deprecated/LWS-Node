@@ -9,7 +9,7 @@ public class DotnetAspInitializerTest
     [Fact(DisplayName = "InitAsp should return successful AspInitResult when everything works well.")]
     public void Is_InitAsp_Returns_Successful_AspInitResult()
     {
-        var initializer = new DotnetAspInitializer("https://github.com/LightWebService/LWS-Node", "", "LWS-Node/LWS-Node.csproj");
+        var initializer = new DotnetAspInitializer("https://github.com/LightWebService/LWS-Node", "");
 
         var result = initializer.InitAsp();
         Assert.True(result.IsSucceed);
@@ -23,7 +23,7 @@ public class DotnetAspInitializerTest
     [Fact(DisplayName = "InitAsp should return negative AspInitResult when app cannot clone repository.")]
     public void Is_InitAsp_Returns_Negative_AspInitResult_When_App_Cannot_Clone_Repository()
     {
-        var initializer = new DotnetAspInitializer("", "", "LWS-Node/LWS-Node.csproj");
+        var initializer = new DotnetAspInitializer("", "");
 
         var result = initializer.InitAsp();
         Assert.False(result.IsSucceed);

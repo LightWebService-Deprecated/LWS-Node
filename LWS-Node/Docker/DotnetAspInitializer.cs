@@ -20,13 +20,13 @@ public class DotnetAspInitializer
     private readonly string _tempPath = Path.GetTempPath();
     private readonly string _repositoryUrl;
     private readonly string _jsonSettings;
-    private readonly string _absoluteProjectPath;
+    private string _absoluteProjectPath;
+    private string _programName;
     
-    public DotnetAspInitializer(string repositoryUrl, string jsonSettings, string absoluteProject)
+    public DotnetAspInitializer(string repositoryUrl, string jsonSettings)
     {
         _repositoryUrl = repositoryUrl;
         _jsonSettings = jsonSettings;
-        _absoluteProjectPath = absoluteProject;
     }
 
     public AspInitResult<string> InitAsp()
@@ -35,6 +35,9 @@ public class DotnetAspInitializer
         var repositoryPath = CloneRepository();
 
         if (!repositoryPath.IsSucceed) return repositoryPath;
+        
+        // Setup Necessary Paths
+        SetupPaths(repositoryPath.TargetObject!);
         
         // Setup New Settings
         ReplaceAppSettings(repositoryPath.TargetObject!);
@@ -47,6 +50,19 @@ public class DotnetAspInitializer
             Message = "",
             TargetObject = repositoryPath.TargetObject
         };
+    }
+
+    private void SetupPaths(string repositoryPath)
+    {
+        // Find csproj
+        _absoluteProjectPath = Directory.EnumerateFiles(repositoryPath, "*.csproj", SearchOption.AllDirectories)
+            .Select(a => a.Split($"{repositoryPath}/")[1])
+            .First(a => !a.Contains("Test"));
+        
+        // From csproj path, Get Program Name
+        var fileName = Path.GetFileName(_absoluteProjectPath);
+        var programName = fileName!.Split(".csproj");
+        _programName = $"{programName[0]}.dll";
     }
 
     private AspInitResult<string> CloneRepository()
@@ -107,7 +123,7 @@ public class DotnetAspInitializer
         fileWriter.WriteLine("COPY . .");
         fileWriter.WriteLine($"RUN dotnet build \"{_absoluteProjectPath}\" -c Release -o /app/build");
         fileWriter.WriteLine("WORKDIR /app/build");
-        fileWriter.WriteLine("ENTRYPOINT [\"dotnet\", \"LWS-Node.dll\"]");
+        fileWriter.WriteLine($"ENTRYPOINT [\"dotnet\", \"{_programName}\"]");
     }
 
     private string GenerateRandomToken(int length = 8)
