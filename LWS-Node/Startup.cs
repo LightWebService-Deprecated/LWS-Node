@@ -1,19 +1,14 @@
-using System;
-using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
-using System.Linq;
-using System.Threading.Tasks;
 using LWS_Node.Configuration;
-using LWS_Node.Service;
+using LWS_Node.Middleware;
+using LWS_Node.Swagger;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.OpenApi.Models;
 
 namespace LWS_Node
 {
@@ -30,11 +25,15 @@ namespace LWS_Node
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddGrpc();
-            services.AddGrpcReflection();
-
             // Add Configuration
             services.AddSingleton(Configuration.GetSection("NodeConfiguration").Get<NodeConfiguration>());
+
+            services.AddControllers();
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo {Title = "LWS Node Server", Version = "v1"});
+                c.OperationFilter<SwaggerHeaderOptions>();
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,22 +45,17 @@ namespace LWS_Node
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseSwagger();
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "LWS-Node v1"));
             }
 
-            app.UseRouting();
-            
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapGrpcService<NodeManagementService>();
-                endpoints.MapGrpcReflectionService();
+            app.UseHttpsRedirection();
 
-                endpoints.MapGet("/",
-                    async context =>
-                    {
-                        await context.Response.WriteAsync(
-                            "Communication with gRPC endpoints must be made through a gRPC client. To learn how to create a client, visit: https://go.microsoft.com/fwlink/?linkid=2086909");
-                    });
-            });
+            app.UseRouting();
+
+            app.UseMiddleware<NodeAuthMiddleware>();
+
+            app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
         }
     }
 }
