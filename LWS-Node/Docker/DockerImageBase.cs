@@ -2,6 +2,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Docker.DotNet;
 using Docker.DotNet.Models;
+using LWS_Node.Model.Response;
 
 namespace LWS_Node.Docker;
 
@@ -30,7 +31,7 @@ public abstract class DockerImageBase
         return list.Any(a => a.RepoTags.Contains(FullImageName));
     }
 
-    public abstract Task CreateContainerAsync();
+    public abstract Task<ContainerInformation> CreateContainerAsync();
     public abstract Task RunContainerAsync();
     public abstract Task RemoveContainerAsync();
 }
